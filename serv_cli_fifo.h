@@ -10,18 +10,22 @@
 #include <fcntl.h>
 #include <string.h>
 
-#define NMAX 150
+#define NMAX 50
 #define FIFO1 "/tmp/fifo1"
 #define FIFO2 "/tmp/fifo2"
+#define MAX_CLIENTS 10
+int client_pids[MAX_CLIENTS];
+int client_count = 0;
 
-typedef struct {
+typedef struct
+{
     int client_num;
-    int number;
+    int count; // nombre aleatoire
 } Question;
 
-typedef struct {
-    int client_num;
-    int result;
+typedef struct
+{
+    int client_num;    // Numéro du client
+    int numbers[NMAX]; // Liste des nombres aléatoires
 } Response;
-
 #endif
